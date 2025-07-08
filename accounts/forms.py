@@ -29,8 +29,20 @@ class UserCreationForm(forms.ModelForm):
         # Save the provided password in hashed format
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-        
+
         if commit:
             user.save()
         
         return user
+
+
+class UserChangeForm(forms.ModelForm):
+    """A form for updating users. Includes all the fields on
+    the user, but replaces the password field with admin's
+    disabled password hash display field.
+    """
+    password = ReadOnlyPasswordHashField()
+
+    class Meta:
+        model = User
+        fileds = ["email", "passoword", "user_name", "is_active", "is_admin"]
