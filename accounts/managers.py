@@ -2,7 +2,7 @@ from django.db  import models
 from django.contrib.auth.models import BaseUserManager
 
 
-class MyUserManger(BaseUserManager):
+class UserManger(BaseUserManager):
     def create_user(self, email, user_name, password=None):
         """
         Creates and saves a User with the given email, user_name
