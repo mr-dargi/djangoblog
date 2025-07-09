@@ -4,10 +4,20 @@ from .managers import UserManger
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICE = (
+        ("superuser", "Superuser"),
+        ("admin", "Admin"),
+        ("author", "Author"),
+        ("user", "User"),
+        ("premium", "Premium"),
+    )
+    
     email = models.EmailField(max_length=255, unique=True, verbose_name="email address")
     user_name = models.CharField(max_length=100, unique=True)
+    role = models.CharField(max_length=10, choices=ROLE_CHOICE, default="user")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    
 
     objects = UserManger()
 
