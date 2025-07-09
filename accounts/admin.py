@@ -15,19 +15,28 @@ class UserAdmin(BaseUserAdmin):
     # that reference specific fields on auth.User.
     list_display = ["email", "user_name", "is_admin"]
     list_filter = ["is_admin"]
+    readonly_fields = ["last_login"]
     fieldsets = [
-        (None, {"fields": ["email", "password"]}),
-        ("Personal info", {"fields": ["user_name"]}),
-        ("Permissions", {"fields": ["is_admin"]})
+        ('Main', {'fields':('email', 'user_name', 'password')}),
+        ("Permissions", {"fields": ["is_active", "is_admin", "is_superuser", "last_login", "groups", "user_permissions"]})
     ]
     add_fieldsets = [
         (
             None, {
-                    "classes": ["wide"],
-                    "fields": ["email", "user_name", "password1", "password2"]
+                    "fields": ["email", "user_name", "password1", "password2"],
                 }
         )
     ]
+    search_fields = ["email", "user_name"]
+    ordering = ["email"]
+    filter_horizontal = ['groups', 'user_permissions']
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        is_superuser = request.user.is_superuser
+        if not is_superuser:
+            form.base_fileds["is_superuser"].disabled = True
+        return form
 
 
 # Register UserAdmin

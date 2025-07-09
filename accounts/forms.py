@@ -9,7 +9,7 @@ class UserCreationForm(forms.ModelForm):
     fields, plus a repeated password."""
 
     password1 = forms.CharField(label="رمز عبور", widget=forms.PasswordInput)
-    passwrod2 = forms.CharField(label="تایید رمز عبور", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="تایید رمز عبور", widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -45,4 +45,4 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fileds = ["email", "passoword", "user_name", "is_active", "is_admin"]
+        fields = ["email", "password", "user_name", "is_active", "is_admin"]
