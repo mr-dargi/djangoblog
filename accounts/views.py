@@ -1,3 +1,8 @@
-from django.shortcuts import render
+# یک هفته دیگه میام سراغت تا سریع تمومت کنم 
 
-# Create your views here.
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def hello(request):
+    return HttpResponse("Hello")
