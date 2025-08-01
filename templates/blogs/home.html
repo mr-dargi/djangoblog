@@ -3,4 +3,7 @@
 
 {% block content %}
     <h1 class="p-[20px]">Hello from home!!!</h1>
+    {% for post in posts %}
+        {{ post.title }}
+    {% endfor %}
 {% endblock content %}

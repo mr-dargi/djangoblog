@@ -8,12 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+
+    <div class="main">
+        <div class="header">
+            <div class="navbar">
+                <div><a href="#">item1</a></div>
+                <div><a href="#">item2</a></div>
+                <div><a href="#">item3</a></div>
+                <div><a href="#">item4</a></div>
+                <div id="navbar-search"><input type="text" name="" id=""></div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input class="fa fa-search" type="text" name="" id="">
+        </div>
+
+        {% block content %}
+        
+        {% endblock content %}
+   </div>
     
-    {% block content %}
-    
-    {% endblock content %}
 
 </body>
 </html>
