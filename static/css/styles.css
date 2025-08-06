@@ -1,0 +1,398 @@
+@font-face {
+    font-family: "iran-sans";
+    src: url(../fonts/irsans.ttf);
+}
+
+@font-face {
+    font-family: "bold-iransans";
+    src: url(../fonts/irsansb.ttf);
+}
+
+* {
+    font-family: "iran-sans";
+    direction: rtl;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: #f2f3f6;
+}
+
+.container {
+    max-width: 1084px;
+    margin: auto;
+}
+
+/* Barand section */
+.brand {
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.brand h1 {
+    font-family: "bold-iransans";
+    font-size: 35px;
+}
+
+.brand span {
+    background-color: black;
+    color: white;
+}
+
+/* Header section */
+.header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 20px;
+}
+
+#navbar-search {
+    display: none;
+}
+
+
+/* Mobile search view */
+.mobile-sticky-searchbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.mobile-search-container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: transparent;
+}
+
+/* Mobile searchbar after scroll */
+.mobile-sticky-searchbar.scrolled {
+    width: 100%;
+    background-color: #f2f3f6;
+    backdrop-filter: blur(6px);
+}
+
+.mobile-search-container input {
+    width: 100%;
+    height: 46px;
+    background-color: white;
+    color: rgb(156, 156, 156);
+    padding: 10px 40px 10px 12px;
+    font-size: 16px;
+    border-radius: 100px;
+    box-sizing: border-box;
+}
+
+/* Mobile Search icon */
+.mobile-search-container .search-icon {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+/* Mian section of view  */
+.main {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "content content content content content content"
+    "pop pop pop pop pop pop"
+    "tags tags tags tags tags tags";
+}
+
+/* Main section => content */
+.content {
+    grid-area: content;
+}
+
+.card {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    max-height: 600px;
+    border-radius: 30px;
+}
+
+.card-image img {
+    border-radius: 30px;
+    width: 100%;
+}
+
+.card-title {
+    font-family: "bold-iransans";
+    font-weight: 900;
+    margin: 10px;
+    font-size: x-large;
+}
+
+.card-publish-date h5 {
+    margin: 10px;
+    font-size: medium;
+    font-weight: 8px;
+}
+
+.card-body {
+    font-size: small;
+    font-weight: 5px;
+    text-align: justify;
+    margin: 10px;
+}
+
+.card-footer {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 10px;
+}
+
+.card-footer-comment {
+    text-align: left;
+}
+
+/* Main section => Popular post */
+.popular-post {
+    grid-area: pop;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px;
+    margin: 20px 20px 0 20px;
+}
+
+.popular-post table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.popular-post th, td {
+    text-align: right;
+    padding: 8px;
+}
+
+.popular-post th {
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.popular-post td div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.popular-post img {
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+/* Main section => tags */
+.tags {
+    grid-area: tags;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px;
+    margin:  0 20px;
+}
+
+.tags table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tags th, td {
+    text-align: right;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.tags th {
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* Footer section */
+.custom-footer {
+  background: white;
+  padding: 50px 20px 100px;
+  border-radius: 30px 30px 0 0;
+  margin-top: 100px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #04AA6D;
+}
+
+.footer-logo p {
+  font-size: 14px;
+}
+
+.footer-links h3,
+.footer-social h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #04AA6D;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #04c980;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 20px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #04c980;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #747474;
+  font-size: 14px;
+}
+
+.footer-bottom span {
+  color: #04AA6D;
+}
+
+
+
+/* Computer and Laptop view */
+@media only screen and (min-width:992px) {
+
+    .content {
+        grid-area: 1 / 3 / span 4 / span 4;
+    }
+
+    .popular-post {
+        grid-area: 1 / 1 / span 1 / span 2;
+    }
+
+    .tags {
+        grid-area: 2 / 1 / span 1 / span 2;
+    }
+
+    #mobile-searchbar {
+        display: none;
+    }
+
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .navbar {
+        background-color: white;
+        height: 68px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+        align-items: center;
+        border-radius: 100px;
+        margin: 20px 5PX !important;
+        padding: 10px 30px 10px 10px;
+    }
+
+    #navbar-search {
+        display: block;
+        height: 45px;
+        position: relative;
+    }
+
+
+    #navbar-search i {
+        position: absolute;
+        right: 40px;
+        top: 30%;
+    }
+
+    .navbar div:last-child {
+        text-align: left;
+        height: 45px;
+    }
+
+    .navbar form > input {
+        border-radius: 100px;
+        height: 45px;
+        width: 90%;
+        background-color: #f2f3f6;
+        padding-right: 30px;
+        color: rgb(156, 156, 156);
+    }
+
+    .header.scrolled {
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        height: 120px;
+        width: 100vw;
+        margin-right: calc(-50vw + 50%);
+    }
+
+    .header.scrolled .navbar {
+        max-width: 1084px;
+        width: 100%;
+        margin: auto !important;
+    }
+
+    .custom-footer {
+        padding-bottom: 20px;
+    }
+}

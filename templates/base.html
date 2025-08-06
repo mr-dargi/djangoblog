@@ -6,32 +6,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static './css/styles.css' %}">
 </head>
 <body>
+    <div class="container">
+        <!-- Website barand -->
+       <div class="brand"> 
+           <h1><b>جنگو وبلاگ</b></h1>
+           <p>به وبلاگ جنگو <span class="">خوش آمدید.</span></p>
+       </div>
 
-    <div class="main">
-        <div class="header">
+       <!-- Header -->
+       <header id="header" class="header">
             <div class="navbar">
-                <div><a href="#">item1</a></div>
-                <div><a href="#">item2</a></div>
-                <div><a href="#">item3</a></div>
-                <div><a href="#">item4</a></div>
-                <div id="navbar-search"><input type="text" name="" id=""></div>
+                <div>
+                    <a href="#">خانه</a>
+                </div>
+                <div>
+                    <a href="#">درباره ما</a>
+                </div>
+                <div>
+                    <a href="#">تماس با ما</a>
+                </div>
+                <div>
+                    <a href="#">ورود/ثبت نام</a>
+                </div>
+                <div id="navbar-search">
+                  <form action="" method="get">
+                    <input type="text" value="جستو جو وبلاگ ها">
+                    <i class="fa fa-search"></i>
+                  </form>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile or tablet view searchbar -->
+        <div id="mobile-searchbar" class="mobile-sticky-searchbar">
+            <div class="mobile-search-container">
+              <form action="" method="get">
+                <input type="text" value="جستو جو وبلاگ ها">
+                <i class="fa fa-search search-icon"></i>
+              </form>
             </div>
         </div>
 
-        <div class="search-bar">
-            <input class="fa fa-search" type="text" name="" id="">
-        </div>
 
-        {% block content %}
+        {% block content %} 
         
         {% endblock content %}
-   </div>
-    
 
+    </div>
+    
+    <!-- Footer -->
+    <footer class="custom-footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+            <h2>جنگو وبلاگ</h2>
+            <p>تجربه‌ای نو از طراحی وب</p>
+            </div>
+
+            <div class="footer-links">
+            <h3>لینک‌ها</h3>
+            <ul>
+                <li><a href="#">خانه</a></li>
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">تماس با ما</a></li>
+                <li><a href="#">ورود/ثبت نام</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-social">
+            <h3>ما را دنبال کنید</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-telegram"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; ۲۰۲۵ تمام حقوق برای <span>MyWebsite</span> محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
 </body>
 </html>

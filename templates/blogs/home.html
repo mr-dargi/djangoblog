@@ -2,8 +2,167 @@
 
 
 {% block content %}
-    <h1 class="p-[20px]">Hello from home!!!</h1>
-    {% for post in posts %}
-        {{ post.title }}
-    {% endfor %}
+    <!-- Main -->
+        <div class="main">
+
+          <!-- Post content -->
+          <div class="content">
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./woods.jpg" alt="pic">
+              </div>
+              <div class="card-title">
+                <h1>عنوان اولیه</h1>
+              </div>
+              <div class="card-publish-date">
+                <h5>Title description, <span>April 7, 2014</span></h5>
+              </div>
+              <div class="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
+                  recusandae quasi autem cupiditate facere quia quis debitis 
+                  exercitationem, et amet corporis odio porro?
+                </p>
+              </div>
+              <div class="card-footer">
+                <div><a href="#">بیشتر...</a></div>
+                <div class="card-footer-comment">نظرات <span>0</span></div>
+              </div>
+            </div>
+
+             <div class="card">
+              <div class="card-image">
+                <img src="./woods.jpg" alt="pic">
+              </div>
+              <div class="card-title">
+                <h1>عنوان اولیه</h1>
+              </div>
+              <div class="card-publish-date">
+                <h5>Title description, <span>April 7, 2014</span></h5>
+              </div>
+              <div class="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
+                  recusandae quasi autem cupiditate facere quia quis debitis 
+                  exercitationem, et amet corporis odio porro?
+                </p>
+              </div>
+              <div class="card-footer">
+                <div><a href="#">بیشتر...</a></div>
+                <div class="card-footer-comment">نظرات <span>0</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./woods.jpg" alt="pic">
+              </div>
+              <div class="card-title">
+                <h1>عنوان اولیه</h1>
+              </div>
+              <div class="card-publish-date">
+                <h5>Title description, <span>April 7, 2014</span></h5>
+              </div>
+              <div class="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
+                  recusandae quasi autem cupiditate facere quia quis debitis 
+                  exercitationem, et amet corporis odio porro?
+                </p>
+              </div>
+              <div class="card-footer">
+                <div><a href="#">بیشتر...</a></div>
+                <div class="card-footer-comment">نظرات <span>0</span></div>
+              </div>
+            </div>
+            
+
+          </div>
+
+          <!-- Popular post -->
+          <div class="popular-post">
+              <table>
+                <tr>
+                  <th>پست های پر بازدید</th>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                        <span>
+                          <h6>lorem ipsum</h6>
+                          <p>this is text.</p>
+                        </span>
+                        <span>
+                          <img src="./woods.jpg" alt="pic">
+                        </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+          </div>
+
+
+          <!-- Tags -->
+          <div class="tags">
+            <table>
+                <tr>
+                  <th># تگ ها</th>
+                </tr>
+                <tr>
+                  <td>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </td>
+                </tr>
+              </table>
+          </div>
+        </div>   
+
 {% endblock content %}
