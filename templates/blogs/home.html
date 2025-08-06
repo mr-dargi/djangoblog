@@ -8,78 +8,28 @@
           <!-- Post content -->
           <div class="content">
 
-            <div class="card">
-              <div class="card-image">
-                <img src="./woods.jpg" alt="pic">
-              </div>
-              <div class="card-title">
-                <h1>عنوان اولیه</h1>
-              </div>
-              <div class="card-publish-date">
-                <h5>Title description, <span>April 7, 2014</span></h5>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
-                  recusandae quasi autem cupiditate facere quia quis debitis 
-                  exercitationem, et amet corporis odio porro?
-                </p>
-              </div>
-              <div class="card-footer">
-                <div><a href="#">بیشتر...</a></div>
-                <div class="card-footer-comment">نظرات <span>0</span></div>
-              </div>
-            </div>
-
-             <div class="card">
-              <div class="card-image">
-                <img src="./woods.jpg" alt="pic">
-              </div>
-              <div class="card-title">
-                <h1>عنوان اولیه</h1>
-              </div>
-              <div class="card-publish-date">
-                <h5>Title description, <span>April 7, 2014</span></h5>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
-                  recusandae quasi autem cupiditate facere quia quis debitis 
-                  exercitationem, et amet corporis odio porro?
-                </p>
-              </div>
-              <div class="card-footer">
-                <div><a href="#">بیشتر...</a></div>
-                <div class="card-footer-comment">نظرات <span>0</span></div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./woods.jpg" alt="pic">
-              </div>
-              <div class="card-title">
-                <h1>عنوان اولیه</h1>
-              </div>
-              <div class="card-publish-date">
-                <h5>Title description, <span>April 7, 2014</span></h5>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  Aliquid praesentium velit, a reprehenderit modi nisi libero 
-                  recusandae quasi autem cupiditate facere quia quis debitis 
-                  exercitationem, et amet corporis odio porro?
-                </p>
-              </div>
-              <div class="card-footer">
-                <div><a href="#">بیشتر...</a></div>
-                <div class="card-footer-comment">نظرات <span>0</span></div>
-              </div>
-            </div>
-            
+            {% for post in posts %}
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./woods.jpg" alt="pic">
+                    </div>
+                    <div class="card-title">
+                        <h1>{{ post.title }}</h1>
+                    </div>
+                    <div class="card-publish-date">
+                        <h5><span>{{ post.updated_at }}</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            {{ post.body|truncatewords:30 }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div><a href="#">بیشتر...</a></div>
+                        <div class="card-footer-comment">نظرات <span>0</span></div>
+                    </div>
+                </div>
+            {% endfor %}
 
           </div>
 
