@@ -66,6 +66,10 @@ body {
     display: none;
 }
 
+.navbar .active {
+    color: #04AA6D;
+}
+
 
 /* Mobile search view */
 .mobile-sticky-searchbar {

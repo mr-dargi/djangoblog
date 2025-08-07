@@ -22,18 +22,20 @@
        <!-- Header -->
        <header id="header" class="header">
             <div class="navbar">
-                <div>
-                    <a href="#">خانه</a>
-                </div>
-                <div>
-                    <a href="#">درباره ما</a>
-                </div>
-                <div>
-                    <a href="#">تماس با ما</a>
-                </div>
-                <div>
-                    <a href="#">ورود/ثبت نام</a>
-                </div>
+                {% with request.resolver_match.url_name as url_name %}
+                    <div>
+                        <a class="{% if url_name == 'home' %}active{% endif %}" href="{% url 'blogs:home' %}">خانه</a>
+                    </div>
+                    <div>
+                        <a class="{% if request.path == url %}active{% endif %}" href="#">درباره ما</a>
+                    </div>
+                    <div>
+                        <a class="{% if request.path == url %}active{% endif %}" href="#">تماس با ما</a>
+                    </div>
+                    <div>
+                        <a class="{% if request.path == url %}active{% endif %}" href="#">ورود/ثبت نام</a>
+                    </div>
+                {% endwith %}
                 <div id="navbar-search">
                   <form action="" method="get">
                     <input type="text" value="جستو جو وبلاگ ها">
