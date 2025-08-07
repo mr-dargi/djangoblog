@@ -4,6 +4,7 @@ from accounts.models import User
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="images/")
     body = models.TextField()
     slug = models.SlugField(unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
