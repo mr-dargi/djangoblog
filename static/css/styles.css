@@ -161,6 +161,46 @@ body {
     margin: 10px;
 }
 
+/* Main => content => Paginatio */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+  user-select: none;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #04AA6D;
+  color: #04AA6D;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.pagination a:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.pagination .current {
+  background-color: #04AA6D;
+  color: white;
+  font-weight: bold;
+  cursor: default;
+}
+
+.pagination .disabled {
+  border: 1px solid #ccc;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+
 .card-footer {
     display: grid;
     grid-template-columns: 3fr 1fr;

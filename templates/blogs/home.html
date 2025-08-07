@@ -31,6 +31,29 @@
                 </div>
             {% endfor %}
 
+            <!-- Pagination -->
+            <div class="pagination">
+            {% if posts.has_previous %}
+                <a href="?page=1">&laquo; اول</a>
+                <a href="?page={{ posts.previous_page_number }}">‹ قبلی</a>
+            {% else %}
+                <span class="disabled">&laquo; اول</span>
+                <span class="disabled">‹ قبلی</span>
+            {% endif %}
+
+            <span class="current">
+                صفحه {{ posts.number }} از {{ posts.paginator.num_pages }}
+            </span>
+
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">بعدی ›</a>
+                <a href="?page={{ posts.paginator.num_pages }}">آخر &raquo;</a>
+            {% else %}
+                <span class="disabled">بعدی ›</span>
+                <span class="disabled">آخر &raquo;</span>
+            {% endif %}
+            </div>
+
           </div>
 
           <!-- Popular post -->
