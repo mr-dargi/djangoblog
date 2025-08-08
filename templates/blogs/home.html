@@ -11,7 +11,7 @@
             {% for post in posts %}
                 <div class="card">
                     <div class="card-image">
-                        <img src="./woods.jpg" alt="pic">
+                        <img src="{{ post.image.url }}" alt="pic">
                     </div>
                     <div class="card-title">
                         <h1>{{ post.title }}</h1>
@@ -25,7 +25,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <div><a href="#">بیشتر...</a></div>
+                        <div><a href="{% url 'blogs:post_detail' post.slug %}">بیشتر...</a></div>
                         <div class="card-footer-comment">نظرات <span>0</span></div>
                     </div>
                 </div>
@@ -33,25 +33,25 @@
 
             <!-- Pagination -->
             <div class="pagination">
-            {% if posts.has_previous %}
-                <a href="?page=1">&laquo; اول</a>
-                <a href="?page={{ posts.previous_page_number }}">‹ قبلی</a>
-            {% else %}
-                <span class="disabled">&laquo; اول</span>
-                <span class="disabled">‹ قبلی</span>
-            {% endif %}
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; اول</a>
+                    <a href="?page={{ posts.previous_page_number }}">‹ قبلی</a>
+                {% else %}
+                    <span class="disabled">&laquo; اول</span>
+                    <span class="disabled">‹ قبلی</span>
+                {% endif %}
 
-            <span class="current">
-                صفحه {{ posts.number }} از {{ posts.paginator.num_pages }}
-            </span>
+                <span class="current">
+                    صفحه {{ posts.number }} از {{ posts.paginator.num_pages }}
+                </span>
 
-            {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}">بعدی ›</a>
-                <a href="?page={{ posts.paginator.num_pages }}">آخر &raquo;</a>
-            {% else %}
-                <span class="disabled">بعدی ›</span>
-                <span class="disabled">آخر &raquo;</span>
-            {% endif %}
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">بعدی ›</a>
+                    <a href="?page={{ posts.paginator.num_pages }}">آخر &raquo;</a>
+                {% else %}
+                    <span class="disabled">بعدی ›</span>
+                    <span class="disabled">آخر &raquo;</span>
+                {% endif %}
             </div>
 
           </div>
