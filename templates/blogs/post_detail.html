@@ -1,4 +1,10 @@
 {% extends "base.html" %}
 
 
-{% block content %}{% endblock content %}
+{% block content %}
+    <div class="post_detail">
+        <img src="{{ post.image.url }}" alt="pic">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+    </div>
+{% endblock content %}

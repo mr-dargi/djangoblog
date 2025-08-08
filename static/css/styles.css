@@ -1,15 +1,25 @@
 @font-face {
-    font-family: "iran-sans";
-    src: url(../fonts/irsans.ttf);
+    font-family: "iransans";
+    src: url(../fonts/iransans-font/irsans.ttf);
 }
 
 @font-face {
-    font-family: "bold-iransans";
-    src: url(../fonts/irsansb.ttf);
+    font-family: "iransans-bold";
+    src: url(../fonts/iransans-font/irsansb.ttf);
+}
+
+@font-face {
+    font-family: "vazir-bold";
+    src: url(../fonts/vazir-font/Vazir-Bold.ttf);
+}
+
+@font-face {
+    font-family: "vazir-thin";
+    src: url(../fonts/vazir-font/Vazir-Thin.ttf);
 }
 
 * {
-    font-family: "iran-sans";
+    font-family: "vazir-thin";
     direction: rtl;
     box-sizing: border-box;
     margin: 0;
@@ -33,7 +43,6 @@ body {
 }
 
 .brand h1 {
-    font-family: "bold-iransans";
     font-size: 35px;
 }
 
@@ -146,7 +155,6 @@ body {
 }
 
 .card-title {
-    font-family: "bold-iransans";
     font-weight: 900;
     margin: 10px;
     font-size: x-large;
@@ -159,7 +167,7 @@ body {
 }
 
 .card-body {
-    font-size: small;
+    font-size: medium;
     font-weight: 5px;
     text-align: justify;
     margin: 10px;
@@ -355,6 +363,27 @@ body {
   color: #04AA6D;
 }
 
+.post_detail img {
+    border-radius: 50px;
+    padding: 20px;
+    width: 100%;
+}
+
+.post_detail h1 {
+    font-family: "vazir-bold";
+    font-size: x-large;
+    margin: 30px;
+    padding-right: 30px;
+}
+
+.post_detail p {
+    text-align: justify;
+    letter-spacing: normal;
+    word-spacing: -5px;
+    margin: 20px;
+    padding-right: 30px;
+    font-size: 20px;
+}
 
 
 /* Computer and Laptop view */
