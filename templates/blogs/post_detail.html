@@ -2,9 +2,28 @@
 
 
 {% block content %}
-    <div class="post_detail">
-        <img src="{{ post.image.url }}" alt="pic">
+    <div class="post-detail">
+        <img class="post-detail-img" src="{{ post.image.url }}" alt="pic">
         <h1>{{ post.title }}</h1>
+
+        <div class="post-info">
+            <div class="post-author">
+                <div>
+                    <img class="post-author-img" src="../media/images/download.png" alt="author-pic">
+                </div>
+                <div class="post-author-info">
+                    <h4>{{ post.author.user_name }}</h4>
+                    <span>برنامه نویس بک اند</span>
+                </div>
+            </div>
+
+            <div class="post-meta">
+                <time><i class='fa fa-calendar'></i>{{ post.updated_at }}</time>
+                <h4><i class='fa fa-comments'></i>۱۸ کامنت</h4>
+            </div>
+        </div>
+        <hr />
+
         <p>{{ post.body }}</p>
     </div>
 {% endblock content %}
