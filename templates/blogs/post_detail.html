@@ -25,5 +25,79 @@
         <hr />
 
         <p>{{ post.body }}</p>
+
+        <!-- comment section -->
+        <div class="comment-section">
+            <!-- Send comment -->
+            {% if user.is_authenticated %}
+                <div class="comment-form">
+                    <h3>ارسال نظرات و دیدگاه ها</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        <textarea rows="2" name="body"></textarea>
+                        <button type="submit">ارسال نظر</button>
+                    </form>
+                </div>
+            {% else %}
+                <div>
+                    <p><a href="#">ورود</a> به اکانت برای ارسال نظر ....</p>
+                </div>
+            {% endif %}
+
+            <!-- Show comment and reply -->
+            {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-author">
+                        <div>
+                            <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                        </div>
+                        <div class="comment-author-info">
+                            <h4>{{ comment.user }}</h4>
+                            <time><i class='fa fa-calendar'></i> {{ comment.updated }}</time>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p>{{ comment.body }}</p>
+                    </div>
+
+
+                    {% for reply in comment.replies.all %}
+                        <div class="comment reply">
+                            <div class="comment-author">
+                                <div>
+                                    <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                </div>
+                                <div class="comment-author-info">
+                                    <h4>{{ reply.user }}</h4>
+                                    <time><i class='fa fa-calendar'></i> {{ reply.updated }}</time>
+                                </div>
+                            </div>
+
+                            <div class="comment-body">
+                                <p>{{ reply.body }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% if user.is_authenticated %}
+                        <div class="reply-form">
+                            <form method="post">
+                                {% csrf_token %}
+                                <textarea rows="6" name="body"></textarea>
+                                <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                <button type="submit">پاسخ</button>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% empty %}
+                <p>هنوز کامنی وجود ندارد.</p>
+            {% endfor %}
+        </div> 
+</div>
+
+
+        
     </div>
 {% endblock content %}

@@ -23,6 +23,7 @@
     direction: rtl;
     box-sizing: border-box;
     margin: 0;
+    overflow-wrap: break-word;
 }
 
 body {
@@ -417,6 +418,105 @@ body {
 .post-meta * {
     margin: 0 5px;
     color: #04AA6D;
+}
+
+/* Comment section */
+.comment-section {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.comment {
+    min-height: 200px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid #dfdfdf;
+}
+
+.comment-author {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.comment-author-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.comment-body p {
+    padding: 0px 20px 20px 20px;
+    text-align: justify;
+    word-spacing: -5px;
+}
+
+.comment hr {
+    color: #e2e2e2;
+    text-align: center;
+    width: 95%;
+}
+
+.comment-form h3 {
+    padding: 20px;
+}
+
+.comment-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form textarea {
+    background-color: #f2f3f6;
+    border-radius: 20px;
+}
+
+.comment-form button {
+    background-color: #04AA6D;
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px auto;
+    color: white;
+}
+
+.comment.reply {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.reply-form {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.reply-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.reply-form textarea{
+    background-color: #f2f3f6;
+    border-radius: 20px;
+}
+
+.reply-form button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border: 1;
+    background-color: #04AA6D;
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
 }
 
 
