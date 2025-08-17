@@ -27,7 +27,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
     background-color: #f2f3f6;
 }
@@ -296,6 +296,7 @@ body {
   padding: 50px 20px 100px;
   border-radius: 30px 30px 0 0;
   margin-top: 100px;
+  width: 100%;
 }
 
 .footer-top {
@@ -517,6 +518,95 @@ body {
     border-radius: 20px;
     text-align: center;
     color: white;
+}
+
+/* Message section */
+.success {
+    background-color: green;
+    color: white;
+    max-width: 1084px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.danger {
+    background-color: red;
+    color: white;
+}
+
+/* Login section */
+.login-box {
+  width: 350px;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  color: #04AA6D;
+}
+
+.login-box .field {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.login-box input:focus {
+  border-color: #04AA6D;
+  box-shadow: 0 0 0 3px rgba(4,170,109,0.2);
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #04AA6D;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #038b5b;
+}
+
+.signup {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.signup a {
+  color: #04AA6D;
+  text-decoration: none;
+}
+
+.signup a:hover {
+  color: #038b5b;
 }
 
 

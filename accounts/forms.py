@@ -48,6 +48,6 @@ class UserChangeForm(forms.ModelForm):
         fields = ["email", "password", "user_name", "is_active", "is_admin", "role"]
 
 
-class UserLoginForm(forms.ModelForm):
+class UserLoginForm(forms.Form):
     email = forms.EmailField(required=True, label="ایمیل")
     password = forms.CharField(widget=forms.PasswordInput, label="رمز عبور")

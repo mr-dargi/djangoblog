@@ -1,8 +1,8 @@
 from django.urls import path, include
-from .views import hello
+from .views import login_view
 
 
 app_name = "accounts"
 urlpatterns = [
-    path("", hello, name="hello"), # Just for solve a bug and later I will add views
+    path("login/", login_view, name="login"),
 ]

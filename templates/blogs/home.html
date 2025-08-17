@@ -1,12 +1,13 @@
-{% extends "./base.html" %}
+{% extends "../base.html" %}
 
 
 {% block content %}
 
     {% include "./partials/brand.html" %}
-    {% include "./partials/navbar.html" %}
-
+    
     <!-- Main -->
+    <div class="container">
+      {% include "./partials/navbar.html" %}
         <div class="main">
 
           <!-- Post content -->
@@ -140,6 +141,10 @@
                 </tr>
               </table>
           </div>
-        </div>   
+        </div> 
+      </div>
+
+    <!-- Footer -->
+    {% include "./partials/footer.html" %}
 
 {% endblock content %}

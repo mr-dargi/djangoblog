@@ -1,0 +1,8 @@
+{% if messages %}
+
+    {% for msg in messages %}
+        <p class="{{ msg.tags }}">{{ msg }}</p>
+        <script>console.log("1")</script>
+    {% endfor %}
+
+{% endif %}
