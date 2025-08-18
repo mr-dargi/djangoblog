@@ -39,8 +39,20 @@ body {
 
 /* Barand section */
 .brand {
-    text-align: center;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: ".. .. brand brand logout logout";
+    align-items: center;
     padding: 32px 16px;
+}
+
+.brand-text {
+    grid-area: brand;
+    text-align: center;
+    /* justify-content: end; */
+    /* align-items: end; */
+    /* align-content: end; */
 }
 
 .brand h1 {
@@ -50,6 +62,11 @@ body {
 .brand span {
     background-color: black;
     color: white;
+}
+
+.logout{
+    grid-area: logout;
+    text-align: center;
 }
 
 /* Header section */
@@ -534,6 +551,11 @@ body {
 .danger {
     background-color: red;
     color: white;
+    max-width: 1084px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
 }
 
 /* Login section */
