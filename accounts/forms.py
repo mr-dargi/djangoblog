@@ -67,6 +67,15 @@ class UserRegistrationForm(forms.Form):
             raise ValidationError("این ایمیل از قبل ثبت شده است.")
         return email
     
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        user = User.objects.filter(user_name=username).exists()
+
+        if user:
+            raise ValidationError("این نام کاربری ازقبل ثبت شده است.")
+        return username
+
+    
     def clean(self):
         cd = super().clean()
         p1 = cd.get("password1")
