@@ -51,3 +51,26 @@ class UserChangeForm(forms.ModelForm):
 class UserLoginForm(forms.Form):
     email = forms.EmailField(required=True, label="ایمیل")
     password = forms.CharField(widget=forms.PasswordInput, label="رمز عبور")
+
+
+class UserRegistrationForm(forms.Form):
+    username = forms.CharField()
+    email = forms.EmailField()
+    password1 = forms.CharField(label="Password")
+    password2 = forms.CharField(label="Confirm password")
+
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        user = User.objects.filter(email=email).exists()
+
+        if user:
+            raise ValidationError("این ایمیل از قبل ثبت شده است.")
+        return email
+    
+    def clean(self):
+        cd = super().clean()
+        p1 = cd.get("password1")
+        p2 = cd.get("password2")
+
+        if p1 and p2 and p2 != p2:
+            raise ValidationError("رمز های عبور با هم تطابق ندارد.")

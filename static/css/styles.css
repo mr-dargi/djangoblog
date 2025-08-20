@@ -632,6 +632,59 @@ body {
 }
 
 
+.register-box {
+    width: 350px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.register-box h2 {
+    text-align: center;
+    color: #04AA6D;
+    margin-bottom: 20px;
+}
+
+.register-box input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.register-box button {
+    width: 100%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.register-box button:hover {
+    background-color: #038a5a;
+}
+
+.register-box p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-box a {
+    color: #04AA6D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 /* Computer and Laptop view */
 @media only screen and (min-width:992px) {
 

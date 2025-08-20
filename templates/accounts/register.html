@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+    <div class="register-box">
+    <h2>ثبت نام</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">نام کاربری</label>
+            <input type="text" placeholder="Username" name="username" required>
+        </div>
+        <div>
+            <label for="email">ایمیل</label>
+            <input type="email" placeholder="Email" name="email" required>
+        </div>
+        <div>
+            <label for="password1">رمز عبور</label>
+            <input type="password" placeholder="Password" name="password1" required>
+        </div>
+        <div>
+            <label for="password2">تایید رمز عبور</label>
+            <input type="password" placeholder="Confirm Password" name="password2" required>
+        </div>
+        <button type="submit">ثبت نام</button>
+    </form>
+    <p>از قبل حساب دارید؟ <a href="{% url 'accounts:login' %}">ورود</a></p>
+    </div>
+{% endblock %}
