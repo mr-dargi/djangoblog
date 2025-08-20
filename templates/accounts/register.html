@@ -2,7 +2,9 @@
 
 {% block content %}
     {% if form.errors %}
-        {{ form.errors }}
+        <div class="danger">
+            {{ form.errors }}
+        </div>
     {% endif %}
     <div class="register-box">
     <h2>ثبت نام</h2>
