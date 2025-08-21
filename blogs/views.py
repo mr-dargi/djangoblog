@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.core.paginator import Paginator
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.contrib.auth.decorators import login_required
+from accounts.decorators import role_required
 
 
 def home(request):
-    posts = Post.objects.filter(published=True)
+    posts = Post.objects.filter(status="published")
     paginator = Paginator(posts, 4)
 
     page_number = request.GET.get("page")
@@ -14,7 +16,7 @@ def home(request):
 
 
 def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug, published=True)
+    post = get_object_or_404(Post, slug=slug, status="published")
     comments = post.comments.filter(parent__isnull=True)
 
     if request.method == "POST":
@@ -37,3 +39,22 @@ def post_detail(request, slug):
         "comments": comments,
         "form": form
         })
+
+@login_required(login_url="/accounts/login/")
+@role_required(["superuser", "author"])
+def create_post(request):
+    if request.method == "POST":
+        print("1")
+        form = PostForm(request.POST, request.FILES)
+        print(form.is_valid())
+        if form.is_valid():
+            print("2")
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = "draft"
+            post.save()
+            return redirect("blogs:post_detail", slug=post.slug)
+    else:
+        form = PostForm()
+
+    return render(request, "blogs/create_post.html", {"form":form})

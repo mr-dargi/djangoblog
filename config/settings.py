@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "blogs.apps.BlogsConfig",
     'crispy_forms',
     "crispy_bootstrap4",
+    "tailwind",
+    'theme'
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,8 @@ if DEBUG:
 # Media settings for image upload
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Crispy form
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
