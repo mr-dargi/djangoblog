@@ -3,6 +3,14 @@ from accounts.models import User
 
 
 class Post(models.Model):
+    STATUS_CHOICES = (
+        ("draft", "Draft"),
+        ("pending", "Pending"),
+        ("published", "Published"),
+        ("rejected", "Rejected"),
+    )
+
+
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="images/")
     body = models.TextField()
@@ -10,8 +18,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    published = models.BooleanField(default=False)
     is_premium = models.BooleanField(default=False)
+
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
     class Meta:
         ordering = ["created_at"]

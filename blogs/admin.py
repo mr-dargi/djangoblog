@@ -8,14 +8,14 @@ class PostAdmin(admin.ModelAdmin):
         "title",
         "slug",
         "author",
-        "published",
+        "status",
         "created_at",
         "updated_at",
         "is_premium"
     )
 
     list_filter = (
-        'published',
+        'status',
     )
 
     search_fields = (
@@ -24,7 +24,7 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     prepopulated_fields = {"slug": ("title", )}
-    ordering = ("-published", "created_at")
+    ordering = ("created_at",)
 
 
 admin.site.register(Post, PostAdmin)
