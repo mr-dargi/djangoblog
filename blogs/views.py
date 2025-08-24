@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
 from accounts.decorators import role_required
+from django.contrib import messages
 
 
 def home(request):
@@ -53,7 +54,11 @@ def create_post(request):
             post.author = request.user
             post.status = "draft"
             post.save()
-            return redirect("blogs:post_detail", slug=post.slug)
+            messages.success(request, 
+                             "پست شما با موفقیت ذخیره شد پس از بررسی توسط ادمین ها منتشر می شود.",
+                            "success"
+                            )
+            return redirect("blogs:createPost", slug=post.slug)
     else:
         form = PostForm()
 

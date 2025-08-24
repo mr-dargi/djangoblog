@@ -2,9 +2,33 @@
 
 
 {% block content %}
+  <div class="postCreate">
+    <h2>ساخت مقاله</h2>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ذخیره</button>
+      {% csrf_token %}
+      <div>
+        <label for="title">عنوان</label>
+        {{ form.title }}
+      </div>
+      <div>
+        <label for="image">عکس</label>
+        {{ form.image }}
+      </div>
+      <div>
+        <label for="body">بدنه مقاله</label>
+        {{ form.body }}
+      </div>
+      <div>
+        <label for="slug">اسلاگ</label>
+        {{ form.slug }}
+      </div>
+      <div class="premium">
+        <label for="is_premium">پست ویژه</label>
+        {{ form.is_premium }}
+      </div>
+      <button type="submit" class="btn btn-success">ذخیره</button>
     </form>
+  </div>
+
+  {{ form.media }} 
 {% endblock content %}

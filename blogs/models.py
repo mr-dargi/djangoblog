@@ -11,14 +11,14 @@ class Post(models.Model):
     )
 
 
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="images/")
-    body = models.TextField()
-    slug = models.SlugField(max_length=100, unique=True)
+    title = models.CharField(max_length=200, verbose_name="عنوان")
+    image = models.ImageField(upload_to="images/", verbose_name="عکس")
+    body = models.TextField(verbose_name="مقاله")
+    slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_premium = models.BooleanField(default=False)
+    is_premium = models.BooleanField(default=False, verbose_name="مقاله ویژه")
 
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 

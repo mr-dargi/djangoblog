@@ -32,6 +32,27 @@ body {
     background-color: #f2f3f6;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #038a5a;
+}
+
+input {
+    border: 0;
+}
+
+textarea {
+    border: 0;
+}
+
+button {
+    border: 0;
+}
+
 .container {
     max-width: 1084px;
     margin: auto;
@@ -50,9 +71,6 @@ body {
 .brand-text {
     grid-area: brand;
     text-align: center;
-    /* justify-content: end; */
-    /* align-items: end; */
-    /* align-content: end; */
 }
 
 .brand h1 {
@@ -176,7 +194,7 @@ body {
 .card-title {
     font-weight: 900;
     margin: 10px;
-    font-size: x-large;
+    font-size: large;
 }
 
 .card-publish-date h5 {
@@ -653,7 +671,6 @@ body {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 20px;
-    box-sizing: border-box;
 }
 
 .register-box button {
@@ -682,6 +699,52 @@ body {
     color: #04AA6D;
     text-decoration: none;
     font-weight: bold;
+}
+
+.postCreate {
+    max-width: 600px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.postCreate input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    display: inline;
+}
+
+.postCreate h2 {
+    text-align: center;
+    color: #04AA6D;
+    margin-bottom: 20px;
+}
+
+.postCreate button {
+    width: 100%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.premium {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.premium input {
+    width: 20px;
 }
 
 
