@@ -4,7 +4,9 @@
 {% block content %}
     <div class="container">
         <div class="post-detail">
-            <img class="post-detail-img" src="{{ post.image.url }}" alt="pic">
+            <div class="post-detail-img">
+                <img src="{{ post.image.url }}" alt="pic">
+            </div>
             <h1>{{ post.title }}</h1>
 
             <div class="post-info">
