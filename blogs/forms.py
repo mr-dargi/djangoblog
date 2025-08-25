@@ -10,7 +10,7 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    body = forms.CharField(label="بدنه مقاله", widget=TinyMCE(attrs={'cols': 80, 'rows': 20}))
+    body = forms.CharField(label="بدنه مقاله", widget=TinyMCE(attrs={'cols': 80, 'rows': 20, "class": "createPostTextarea",}))
 
     class Meta:
         model = Post

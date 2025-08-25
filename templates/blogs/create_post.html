@@ -31,4 +31,11 @@
   </div>
 
   {{ form.media }} 
+
+  <script src="/path/to/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '.createPostTextarea',
+        });
+  </script>
 {% endblock content %}
