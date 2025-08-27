@@ -77,4 +77,4 @@ class UserPasswordResetConfirmView(auth_view.PasswordResetConfirmView):
 
 
 class UserPasswordResetCompleteView(auth_view.PasswordResetCompleteView):
-    template_name = "accounrts/password_reset_complete.html"
+    template_name = "accounts/password_reset_complete.html"

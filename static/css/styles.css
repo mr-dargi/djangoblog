@@ -827,6 +827,75 @@ button {
     font-weight: bold;
 }
 
+/* Reset done section */
+.reset-done {
+    max-width: 350px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.reset-done h2 {
+    text-align: center;
+    color: #04AA6D;
+    margin-bottom: 20px;
+}
+
+.reset-done input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.reset-done button {
+    width: 100%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.reset-done button:hover {
+    background-color: #038a5a;
+}
+
+.register-box p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.reset-done a {
+    color: #04AA6D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reset-complete {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.reset-complete a {
+    color: #04AA6D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.password-reset {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
 
 
 @media only screen and (min-width:540px) {
