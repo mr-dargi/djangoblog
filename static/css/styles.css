@@ -674,7 +674,7 @@ button {
 
 /* Rigester section */
 .register-box {
-    width: 350px;
+    max-width: 350px;
     background: #fff;
     padding: 30px;
     border-radius: 20px;
@@ -724,6 +724,7 @@ button {
     font-weight: bold;
 }
 
+/* Create post section */
 .postCreate {
     max-width: 600px;
     background: #fff;
@@ -769,6 +770,64 @@ button {
 .premium input {
     width: 20px;
 }
+
+/* Forget password section */
+.forget-password {
+    background-color: #fff;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.forget-password input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 12px;
+    margin: 10px 0;
+}
+
+.forget-password button {
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 12px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.forget-password button:hover {
+    background-color: #038a5a;
+}
+
+.forget-password h2 {
+    text-align: center;
+    color: #04AA6D;
+    margin-bottom: 20px;
+}
+
+.forget-password p {
+    padding: 20px 10px;
+}
+
+.login-page {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-page a {
+    color: #04AA6D;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 
 @media only screen and (min-width:540px) {
     .card-image {
