@@ -13,9 +13,16 @@
                     <h3>
                         {{ post.title }}
                     </h3>
-                    <a href="{% url "blogs:post_detail" slug=post.slug %}">
-                        <i class="fa fa-eye" style="font-size:20px"></i>
-                    </a>
+                    {% if post.status == "published" %}
+                        <a href="{% url "blogs:post_detail" slug=post.slug %}">
+                            <i class="fa fa-eye" style="font-size:20px"></i>
+                        </a>
+                    {% else %}
+                        <a class="link-disabled" href="#">
+                            <i class="fa fa-eye" style="font-size:20px"></i>
+                        </a>
+                    {% endif %}
+
                     <a href="#">
                         <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
                     </a>
