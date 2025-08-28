@@ -897,6 +897,24 @@ button {
     font-size: 14px;
 }
 
+/* Author page section */
+.authorPage-title {
+    padding: 30px 20px;
+}
+
+.authorPage-post {
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px 20px;
+    padding: 30px;
+}
+
+.authorPage-post-header {
+    display: grid;
+    grid-template-columns: 15fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
 
 @media only screen and (min-width:540px) {
     .card-image {

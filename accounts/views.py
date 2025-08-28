@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import User
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, PostForm
 from django.contrib import messages
 from django.contrib.auth import views as auth_view
 from django.urls import reverse_lazy
+from blogs.models import Post
+from django.contrib.auth.decorators import login_required
+from .decorators import role_required
 
 
 def login_view(request):
@@ -78,3 +81,35 @@ class UserPasswordResetConfirmView(auth_view.PasswordResetConfirmView):
 
 class UserPasswordResetCompleteView(auth_view.PasswordResetCompleteView):
     template_name = "accounts/password_reset_complete.html"
+
+
+@login_required(login_url="/accounts/login/")
+@role_required(["superuser", "author"])
+def authorPage_view(request):
+    posts = Post.objects.filter(author=request.user)
+    
+    return render(request, "accounts/authorPage.html", { "posts": posts })
+
+
+@login_required(login_url="/accounts/login/")
+@role_required(["superuser", "author"])
+def create_post(request):
+    if request.method == "POST":
+        print("1")
+        form = PostForm(request.POST, request.FILES)
+        print(form.is_valid())
+        if form.is_valid():
+            print("2")
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = "draft"
+            post.save()
+            messages.success(request, 
+                             "پست شما با موفقیت ذخیره شد پس از بررسی توسط ادمین ها منتشر می شود.",
+                            "success"
+                            )
+            return redirect("accounts:createPost", slug=post.slug)
+    else:
+        form = PostForm()
+
+    return render(request, "accounts/create_post.html", {"form":form})

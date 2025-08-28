@@ -1,0 +1,35 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    <div class="authorPage container">
+        {% include "../blogs/partials/navbar.html" %}
+
+        <h2 class="authorPage-title">مقالات شخصی</h2>
+
+        {% for post in posts %}
+            <div class="authorPage-post">
+                <div class="authorPage-post-header">
+                    <h3>
+                        {{ post.title }}
+                    </h3>
+                    <a href="{% url "blogs:post_detail" slug=post.slug %}">
+                        <i class="fa fa-eye" style="font-size:20px"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-trash-o" style="font-size:20px"></i>
+                    </a>
+                </div>
+                <p>
+                    {{ post.body|truncatewords:20|safe }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include "../blogs/partials/footer.html" %}
+
+{% endblock content %}

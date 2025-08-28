@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 from .models import User
+from blogs.models import Post
+from tinymce.widgets import TinyMCE
 
 
 class UserCreationForm(forms.ModelForm):
@@ -83,3 +85,11 @@ class UserRegistrationForm(forms.Form):
 
         if p1 and p2 and p2 != p2:
             raise ValidationError("رمز های عبور با هم تطابق ندارد.")
+
+
+class PostForm(forms.ModelForm):
+    body = forms.CharField(label="بدنه مقاله", widget=TinyMCE(attrs={'cols': 80, 'rows': 20, "class": "createPostTextarea",}))
+
+    class Meta:
+        model = Post
+        fields = ["title", "image", "body", "slug", "is_premium"]
