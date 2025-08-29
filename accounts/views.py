@@ -110,7 +110,7 @@ def create_post(request):
     else:
         form = PostForm()
 
-    return render(request, "accounts/create_post.html", {"form":form})
+    return render(request, "accounts/create_update_post.html", {"form":form})
 
 
 def delete_post(request, pk):
@@ -144,4 +144,4 @@ def edit_post(request, pk):
     else:
         form = PostForm(instance=post)
     
-    return render(request, "accounts/create_post.html", {"form":form})
+    return render(request, "accounts/create_update_post.html", {"form":form})

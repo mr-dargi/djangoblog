@@ -900,6 +900,9 @@ button {
 /* Author page section */
 .authorPage-title {
     padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 15fr 1fr;
+    align-items: center;
 }
 
 .authorPage-post {
@@ -910,9 +913,16 @@ button {
 }
 
 .authorPage-post-header {
-    display: grid;
-    grid-template-columns: 15fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+}
+
+.authorPage-post-header-link {
+    display: flex;
+    width: 150px;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
 }
 
 .link-disabled {
@@ -936,6 +946,14 @@ button {
 
     .post-detail-img img {
         height: 500px;
+    }
+}
+
+@media only screen and (min-width:650px) {
+    .authorPage-post-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
