@@ -113,3 +113,15 @@ def create_post(request):
         form = PostForm()
 
     return render(request, "accounts/create_post.html", {"form":form})
+
+
+def delete_post(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    if request.user == post.author or request.user.is_superuser:
+        post.delete()
+        messages.success(request, "پست شما با موفقیت حذف شد.", "success")
+        return redirect("accounts:authorPage")
+    else:
+        messages.error(request, "شما دارای دسترسی برای حذف این پست نیستید.", "danger")
+        return redirect("blogs:home")

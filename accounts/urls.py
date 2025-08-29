@@ -13,4 +13,5 @@ urlpatterns = [
 	path('confirm/complete', views.UserPasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path("authorPage/", views.authorPage_view, name="authorPage"),
     path("createPost/", views.create_post, name="create_post"),
+    path("post/delete/<int:pk>/", views.delete_post, name="delete_post"),
 ]
