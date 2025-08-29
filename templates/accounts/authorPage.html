@@ -23,7 +23,7 @@
                         </a>
                     {% endif %}
 
-                    <a href="#">
+                    <a href="{% url 'accounts:edit_post' post.id %}">
                         <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
                     </a>
                     <a href="{% url 'accounts:delete_post' post.id %}">

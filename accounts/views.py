@@ -95,11 +95,9 @@ def authorPage_view(request):
 @role_required(["superuser", "author"])
 def create_post(request):
     if request.method == "POST":
-        print("1")
         form = PostForm(request.POST, request.FILES)
         print(form.is_valid())
         if form.is_valid():
-            print("2")
             post = form.save(commit=False)
             post.author = request.user
             post.status = "draft"
@@ -108,7 +106,7 @@ def create_post(request):
                              "پست شما با موفقیت ذخیره شد پس از بررسی توسط ادمین ها منتشر می شود.",
                             "success"
                             )
-            return redirect("accounts:createPost", slug=post.slug)
+            return redirect("accounts:create_post")
     else:
         form = PostForm()
 
@@ -125,3 +123,25 @@ def delete_post(request, pk):
     else:
         messages.error(request, "شما دارای دسترسی برای حذف این پست نیستید.", "danger")
         return redirect("blogs:home")
+
+
+def edit_post(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        print(form.is_valid())
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = "draft"
+            post.save()
+            messages.success(request, 
+                             "پست شما با موفقیت ذخیره شد پس از بررسی توسط ادمین ها منتشر می شود.",
+                            "success"
+                            )
+            return redirect("accounts:authorPage")
+    else:
+        form = PostForm(instance=post)
+    
+    return render(request, "accounts/create_post.html", {"form":form})
