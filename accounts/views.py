@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .models import User
 from .forms import UserLoginForm, UserRegistrationForm, PostForm
@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from blogs.models import Post
 from django.contrib.auth.decorators import login_required
 from .decorators import role_required
+from django.db.models import Prefetch
 
 
 def login_view(request):
@@ -145,3 +146,18 @@ def edit_post(request, pk):
         form = PostForm(instance=post)
     
     return render(request, "accounts/create_update_post.html", {"form":form})
+
+
+@login_required(login_url="/accounts/login/")
+@role_required(["superuser", "admin"])
+def admin_page(request):
+    post_qs = Post.objects.only("id", "title", "status", "author_id").order_by("-created_at")
+    authors = (
+        User.objects
+        .filter(post__isnull=False)
+        .distinct()
+        .prefetch_related(Prefetch("post_set", queryset=post_qs))
+        .order_by("user_name")
+    )
+
+    return render(request, "accounts/adminPage.html", { "authors": authors })

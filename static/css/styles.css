@@ -930,6 +930,90 @@ button {
   cursor: not-allowed;
 }
 
+.adminPage-author-List { 
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+details {
+    border-radius: 12px;
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.chev {
+    transition: transform .2s ease;
+    margin-left: 8px;
+}
+
+details[open] .chev { 
+    transform: rotate(-90deg); 
+}
+
+.meta { 
+    font-size: 12px; 
+    opacity: .7; 
+    margin-right: 8px; 
+}
+
+.adminPage-author-postList { 
+    margin: 12px 0 0 0; 
+    padding: 0; 
+}
+
+.adminPage-post-row { 
+    display: grid; 
+    grid-template-columns: 1fr auto; 
+    gap: 12px; 
+    align-items: center;
+    background: #fafafa; 
+    border: 1px solid #eee; 
+    padding: 10px 12px; 
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.adminPage-post-row a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+}
+
+.status.pending {
+    background: #fffbe6;
+    border-color: #ffe58f;
+}
+
+.status.accepted {
+    background: #f6ffed;
+    border-color: #b7eb8f;
+}
+
+.status.rejected {
+    background: #fff1f0;
+    border-color: #ffa39e;
+}
+
 
 @media only screen and (min-width:540px) {
     .card-image {

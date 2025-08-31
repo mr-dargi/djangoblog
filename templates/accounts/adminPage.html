@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    <div class="container">
+        {% include "../blogs/partials/navbar.html" %}
+        {% for author in authors %}
+    <div class="adminPage-author-List">
+      <details>
+        <summary>
+          <span>
+            {{ author.user_name }}
+            <span class="meta">تعداد پست ها {{ author.post_set.count }}</span>
+          </span>
+          <span class="chev">▸</span>
+        </summary>
+
+        <ul class="adminPage-author-postList">
+          {% for post in author.post_set.all %}
+            <li class="adminPage-post-row">
+              <a href="#">{{ post.title }}</a>
+              <span class="status {{ post.status }}">{{ post.get_status_display }}</span>
+            </li>
+          {% empty %}
+            <li>این نویسنده پستی ندارد.</li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+  {% endfor %}
+
+    </div>
+    {% include "../blogs/partials/footer.html" %}
+{% endblock content %}
