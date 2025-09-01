@@ -13,6 +13,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     
     email = models.EmailField(max_length=255, unique=True, verbose_name="email address")
+    first_name = models.CharField(max_length=100, blank=True, verbose_name="First name")
+    last_name = models.CharField(max_length=100, blank=True, verbose_name="Last Name")
+    user_image = models.ImageField(upload_to="user_images", default="user_images/default-user-picture.png")
     user_name = models.CharField(max_length=100, unique=True)
     role = models.CharField(max_length=10, choices=ROLE_CHOICE, default="user")
     is_active = models.BooleanField(default=True)
