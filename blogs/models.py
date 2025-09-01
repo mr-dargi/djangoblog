@@ -12,7 +12,7 @@ class Post(models.Model):
 
 
     title = models.CharField(max_length=200, verbose_name="عنوان")
-    image = models.ImageField(upload_to="images/", verbose_name="عکس")
+    image = models.ImageField(upload_to="blogs/", verbose_name="عکس")
     body = models.TextField(verbose_name="مقاله")
     slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
