@@ -161,3 +161,18 @@ def admin_page(request):
     )
 
     return render(request, "accounts/adminPage.html", { "authors": authors })
+
+
+@login_required(login_url="/accounts/login/")
+@role_required(["superuser", "admin"])
+def admin_post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == "POST":
+        new_status = request.POST.get("status")
+        if new_status in dict(Post.STATUS_CHOICES):
+            post.status = new_status
+            post.save()
+        return redirect("accounts:admin_post_detail", post_id=post.id)
+    
+    return render(request, "accounts/admin_post_detail.html", {"post": post})

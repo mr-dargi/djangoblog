@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="post-preview">
+            <p class="muted"><a href="javascript:history.back()">← بازگشت</a></p>
+            <h1>{{ post.title }}</h1>
+            <p class="muted">نویسنده: {{ post.author.user_name }}</p>
+
+            <hr>
+            <div class="content">{{ post.body|safe }}</div>
+
+            <form method="post" class="toolbar">
+            {% csrf_token %}
+            <label for="status">وضعیت:</label>
+            <select name="status" id="status">
+                <option value="draft"  {% if post.status == 'draft' %}selected{% endif %}>Draft</option>
+                <option value="pending" {% if post.status == 'pending' %}selected{% endif %}>Pending</option>
+                <option value="published" {% if post.status == 'published' %}selected{% endif %}>Published</option>
+                <option value="rejected" {% if post.status == 'rejected' %}selected{% endif %}>Rejected</option>
+            </select>
+            <button type="submit">ذخیره</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

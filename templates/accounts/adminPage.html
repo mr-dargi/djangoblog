@@ -18,7 +18,7 @@
         <ul class="adminPage-author-postList">
           {% for post in author.post_set.all %}
             <li class="adminPage-post-row">
-              <a href="#">{{ post.title }}</a>
+              <a href="{% url 'accounts:admin_post_detail' post.id %}">{{ post.title }}</a>
               <span class="status {{ post.status }}">{{ post.get_status_display }}</span>
             </li>
           {% empty %}
