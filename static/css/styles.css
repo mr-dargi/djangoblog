@@ -999,17 +999,17 @@ details[open] .chev {
     border: 1px solid #ddd;
 }
 
-.status.pending {
+.pending {
     background: #fffbe6;
     border-color: #ffe58f;
 }
 
-.status.accepted {
+.published {
     background: #f6ffed;
     border-color: #b7eb8f;
 }
 
-.status.rejected {
+.rejected {
     background: #fff1f0;
     border-color: #ffa39e;
 }
