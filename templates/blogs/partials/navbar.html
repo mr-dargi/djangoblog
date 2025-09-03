@@ -15,7 +15,7 @@
                 {% if not user.is_authenticated %}
                     <a class="{% if url_name == 'login' %}active{% endif %}" href="{% url 'accounts:login' %}">ورود/ثبت نام</a>
                 {% else %}
-                    <a class="{% if url_name == url %}active{% endif %}" href="#">پروفایل</a>
+                    <a class="{% if url_name == url %}active{% endif %}" href="{% url 'accounts:profile' %}">پروفایل</a>
                 {% endif %}
             </div>
         {% endwith %}
