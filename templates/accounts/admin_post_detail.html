@@ -9,7 +9,7 @@
             <p class="muted">نویسنده: {{ post.author.user_name }}</p>
 
             <hr>
-            <div class="content">{{ post.body|safe }}</div>
+            <div class="body-content">{{ post.body|safe }}</div>
 
             <form method="post" class="toolbar">
             {% csrf_token %}
