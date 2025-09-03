@@ -93,3 +93,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["title", "image", "body", "slug", "is_premium"]
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "user_image", "user_name"]

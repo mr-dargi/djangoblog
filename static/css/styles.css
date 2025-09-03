@@ -1059,6 +1059,67 @@ details[open] .chev {
     padding: 10px;
 }
 
+.profile {
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.profile .field {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.profile input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.profile label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+}
+
+.profile input:focus {
+  border-color: #04AA6D;
+  box-shadow: 0 0 0 3px rgba(4,170,109,0.2);
+  outline: none;
+}
+
+.profile button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #04AA6D;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile button:hover {
+  background: #038b5b;
+}
+
+.profile img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
 
 @media only screen and (min-width:540px) {
     .card-image {

@@ -1,0 +1,29 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    <div class="profile">
+        <img src="{{ user.user_image.url }}" />
+        <h3>{{ user.user_name }}</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <label for="">نام کاربری</label>
+                {{ form.user_name }}
+            </div>
+            <div class="field">
+                <label for="">عکس پروفایل</label>
+                {{ form.user_image }}
+            </div>
+            <div class="field">
+                <label for="">نام</label>
+                {{ form.first_name }}
+            </div>
+            <div class="field">
+                <label for="">نام خانوادگی</label>
+                {{ form.last_name }}
+            </div>
+            <button type="submit">تغییر پروفایل</button>
+        </form>
+    </div>
+{% endblock content %}

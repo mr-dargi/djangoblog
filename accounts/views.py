@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .models import User
-from .forms import UserLoginForm, UserRegistrationForm, PostForm
+from .forms import UserLoginForm, UserRegistrationForm, PostForm, ProfileForm
 from django.contrib import messages
 from django.contrib.auth import views as auth_view
 from django.urls import reverse_lazy
@@ -176,3 +176,17 @@ def admin_post_detail(request, post_id):
         return redirect("accounts:admin_post_detail", post_id=post.id)
     
     return render(request, "accounts/admin_post_detail.html", {"post": post})
+
+
+def profile(request):
+    user = User.objects.get(id=request.user.id)
+
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("accounts:profile")
+    else:
+        form = ProfileForm(instance=user)
+    
+    return render(request, "accounts/profile.html", { "form": form, "user": user })
