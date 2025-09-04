@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.core.paginator import Paginator
 from .forms import CommentForm
+from django.contrib import messages
 
 
 def home(request):
@@ -57,3 +58,15 @@ def post_detail(request, slug):
         "comments": comments,
         "form": form
         })
+
+
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+
+    if request.user == comment.user or request.user.is_superuser:
+        comment.delete()
+        messages.success(request, "کامنت شما با موفقیت حذف شد.", "success")
+        return redirect("blogs:post_detail", slug=comment.post.slug)
+    else:
+        messages.error(request, "شما دارای دسترسی برای حذف این کامنت نیستید.", "danger")
+        return redirect("blogs:post_detail", slug=comment.post.slug)

@@ -76,12 +76,16 @@ on the same page without navigating away.
                                 </div>
                             </div>
 
-                            <!-- Edit Button -->
-                            <div>
-                                {% if comment.user == request.user %}
+                            <!-- Edit And Delete Button -->
+                            <div class="comment-editAndDelete">
+                                {% if comment.user == request.user or request.user.is_superuser %}
                                     <button onclick="startEdit(1)">
                                         <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
                                     </button>
+
+                                    <a href="{% url 'blogs:delete_comment' comment.id %}">
+                                        <i class="fa fa-trash-o" style="font-size:20px"></i>
+                                    </a>
                                 {% endif %}
                             </div>
                         </div>
@@ -121,12 +125,17 @@ on the same page without navigating away.
                                         </div>
                                     </div>
 
-                                    <!-- Edit Button -->
-                                    <div>
+                                    <!-- Edit And Reply Button -->
+                                    <div class="comment-editAndDelete">
                                         {% if comment.user == request.user %}
                                             <button onclick="startEdit(2)">
                                                 <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
                                             </button>
+
+
+                                            <a href="{% url 'blogs:delete_comment' reply.id %}">
+                                                <i class="fa fa-trash-o" style="font-size:20px"></i>
+                                            </a>
                                         {% endif %}
                                     </div>
 
