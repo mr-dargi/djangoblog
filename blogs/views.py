@@ -14,20 +14,40 @@ def home(request):
 
 
 def post_detail(request, slug):
+    """
+    Display a blog post and handle comment actions.
+
+    This view serves multiple purposes:
+    - Show the post and its top-level comments.
+    - Handle new comments and replies (via `parent_id`).
+    - Handle editing existing comments (via `comment_id`).
+
+    Keeping these actions in a single view makes sense because
+    they all belong to the same post detail page. After each action,
+    the user is redirected back to the same page for a seamless flow.
+    """
+
     post = get_object_or_404(Post, slug=slug, status="published")
     comments = post.comments.filter(parent__isnull=True)
 
     if request.method == "POST":
         form = CommentForm(request.POST)
         parent_id = request.POST.get("parent_id")
+        comment_id = request.POST.get("comment_id")
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.user = request.user
-            if parent_id:
-                parent_comment = Comment.objects.get(id=parent_id)
-                comment.parent = parent_comment
-            comment.save()
+            if comment_id:
+                comment = get_object_or_404(Comment, id=comment_id, post=post, user=request.user)
+                print(comment)
+                comment.body = form.cleaned_data["body"]
+                comment.save()
+            else:
+                comment = form.save(commit=False)
+                comment.post = post
+                comment.user = request.user
+                if parent_id:
+                    parent_comment = Comment.objects.get(id=parent_id)
+                    comment.parent = parent_comment
+                comment.save()
             return redirect("blogs:post_detail", slug=post.slug)
     else:
         form = CommentForm()

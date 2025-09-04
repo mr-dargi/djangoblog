@@ -1,3 +1,16 @@
+<!--
+This template renders the detail page of a blog post. 
+It shows:
+- The post content (title, body, author info, update date).
+- A comment section with:
+  * Form to add a new comment (only if the user is authenticated).
+  * Display of existing comments and their replies.
+  * Inline edit forms for comments/replies (only visible to their authors).
+  * Reply form under each comment (only for authenticated users).
+The design ensures that all comment actions (add, reply, edit) happen directly 
+on the same page without navigating away. 
+-->
+
 {% extends "../base.html" %}
 
 
@@ -50,38 +63,95 @@
                 <!-- Show comment and reply -->
                 {% for comment in comments %}
                     <div class="comment">
-                        <div class="comment-author">
+
+                        <!-- Comment Header -->
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div>
+                                    <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                </div>
+                                <div class="comment-author-info">
+                                    <h4>{{ comment.user }}</h4>
+                                    <time><i class='fa fa-calendar'></i> {{ comment.updated }}</time>
+                                </div>
+                            </div>
+
+                            <!-- Edit Button -->
                             <div>
-                                <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
-                            </div>
-                            <div class="comment-author-info">
-                                <h4>{{ comment.user }}</h4>
-                                <time><i class='fa fa-calendar'></i> {{ comment.updated }}</time>
+                                {% if comment.user == request.user %}
+                                    <button onclick="startEdit(1)">
+                                        <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
+                                    </button>
+                                {% endif %}
                             </div>
                         </div>
+
+                        <!-- Comment Body -->
                         <div class="comment-body">
-                            <p>{{ comment.body }}</p>
+
+                            <p id="comment-text-1">{{ comment.body }}</p>
+
+                            <!-- Edit Form -->
+                            {% if comment.user == request.user %}
+                                <form id="edit-form-1" action="" method="post" style="display: none;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                    <textarea name="body">{{ comment.body }}</textarea>
+                                    <button type="submit">Save</button>
+                                    <button type="button" onclick="cancelEdit(1)">Cancel</button>
+                                </form>
+                            {% endif %}
+
                         </div>
 
-
+                        <!-- Comment Reply Section -->
                         {% for reply in comment.replies.all %}
                             <div class="comment reply">
-                                <div class="comment-author">
+
+                                <!-- Reply Header -->
+                                <div class="comment-header">
+                                    
+                                    <div class="comment-author">
+                                        <div>
+                                            <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                        </div>
+                                        <div class="comment-author-info">
+                                            <h4>{{ reply.user }}</h4>
+                                            <time><i class='fa fa-calendar'></i> {{ reply.updated }}</time>
+                                        </div>
+                                    </div>
+
+                                    <!-- Edit Button -->
                                     <div>
-                                        <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                        {% if comment.user == request.user %}
+                                            <button onclick="startEdit(2)">
+                                                <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
+                                            </button>
+                                        {% endif %}
                                     </div>
-                                    <div class="comment-author-info">
-                                        <h4>{{ reply.user }}</h4>
-                                        <time><i class='fa fa-calendar'></i> {{ reply.updated }}</time>
-                                    </div>
+
                                 </div>
 
+                                <!-- Comment Body -->
                                 <div class="comment-body">
-                                    <p>{{ reply.body }}</p>
+                                    <p id="comment-text-2">{{ reply.body }}</p>
+
+                                    <!-- Edit Form -->
+                                    {% if reply.user == request.user %}
+                                        <form id="edit-form-2" action="" method="post" style="display: none;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="comment_id" value="{{ reply.id }}">
+                                            <textarea name="body">{{ reply.body }}</textarea>
+                                            <button type="submit">Save</button>
+                                            <button type="button" onclick="cancelEdit(2)">Cancel</button>
+                                        </form>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         {% endfor %}
 
+                        <!-- Send reply -->
                         {% if user.is_authenticated %}
                             <div class="reply-form">
                                 <form method="post">

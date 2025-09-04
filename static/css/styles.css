@@ -494,6 +494,21 @@ button {
     border: 1px solid #dfdfdf;
 }
 
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.comment-header button {
+    background-color: #04AA6D;
+    height: 35px;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+}
+
 .comment-author {
     display: flex;
     flex-direction: row;

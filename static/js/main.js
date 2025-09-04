@@ -26,3 +26,22 @@ for (i = 0; i < acc.length; i++) {
     } 
   });
 }
+
+
+/**
+ * Show the edit form for a specific comment and hide the static text.
+ * @param {number} id - The unique ID of the comment element.
+ */
+function startEdit(id) {
+  document.getElementById("comment-text-" + id).style.display = "none";
+  document.getElementById("edit-form-" + id).style.display = "block";
+}
+
+/**
+ * Cancel editing: hide the edit form and show the original comment text again.
+ * @param {number} id - The unique ID of the comment element.
+ */
+function cancelEdit(id) {
+  document.getElementById("edit-form-" + id).style.display = "none";
+  document.getElementById("comment-text-" + id).style.display = "block";
+}
