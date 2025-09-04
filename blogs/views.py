@@ -3,10 +3,22 @@ from .models import Post, Comment
 from django.core.paginator import Paginator
 from .forms import CommentForm
 from django.contrib import messages
+from django.db.models import Count, Q
 
 
 def home(request):
-    posts = Post.objects.filter(status="published")
+    """
+    Display a list of all published posts with the number of top-level comments.
+
+    This view retrieves all posts with status 'published' and annotates each post
+    with an extra field `top_level_comments`. This field contains the number of 
+    comments directly attached to the post (comments without a parent). Replies 
+    are excluded from this count. The annotated queryset is then passed to the 
+    template for rendering.
+    """
+    posts = Post.objects.filter(status="published").annotate(
+        top_level_comments=Count("comments", filter=Q(comments__parent__isnull=True))
+    )
     paginator = Paginator(posts, 4)
 
     page_number = request.GET.get("page")
