@@ -25,7 +25,7 @@ on the same page without navigating away.
             <div class="post-info">
                 <div class="post-author">
                     <div>
-                        <img class="post-author-img" src="../media/images/download.png" alt="author-pic">
+                        <img class="post-author-img" src="{{ post.author.user_image.url }}" alt="author-pic">
                     </div>
                     <div class="post-author-info">
                         <h4>{{ post.author.user_name }}</h4>
@@ -68,7 +68,7 @@ on the same page without navigating away.
                         <div class="comment-header">
                             <div class="comment-author">
                                 <div>
-                                    <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                    <img class="comment-author-img" src="{{ comment.user.user_image.url }}" alt="author-pic">
                                 </div>
                                 <div class="comment-author-info">
                                     <h4>{{ comment.user }}</h4>
@@ -117,7 +117,7 @@ on the same page without navigating away.
                                     
                                     <div class="comment-author">
                                         <div>
-                                            <img class="comment-author-img" src="../media/images/download.png" alt="author-pic">
+                                            <img class="comment-author-img" src="{{ reply.user.user_image.url }}" alt="author-pic">
                                         </div>
                                         <div class="comment-author-info">
                                             <h4>{{ reply.user }}</h4>
