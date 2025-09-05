@@ -1,0 +1,154 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+
+    {% include "./partials/brand.html" %}
+    
+    <!-- Main -->
+    <div class="container">
+      {% include "./partials/navbar.html" %}
+        <div class="main">
+
+          <!-- Post content -->
+          <div class="content">
+
+            <h5 class="post-search-title">نتایج جستوجو برای {% if query %} {{ query }} {% endif %}</h5>
+
+            {% if posts.object_list %}
+                {% for post in posts %}
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ post.image.url }}" alt="pic">
+                        </div>
+                        <div class="card-title">
+                            <h1>{{ post.title }}</h1>
+                        </div>
+                        <div class="card-publish-date">
+                            <h5><span>{{ post.updated_at }}</span></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                {{ post.body|truncatewords:30|safe }}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div><a href="{% url 'blogs:post_detail' post.slug %}">بیشتر...</a></div>
+                            <div class="card-footer-comment">نظرات {{ post.top_level_comments }}</span></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <!-- Pagination -->
+            <div class="pagination">
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; اول</a>
+                    <a href="?page={{ posts.previous_page_number }}">‹ قبلی</a>
+                {% else %}
+                    <span class="disabled">&laquo; اول</span>
+                    <span class="disabled">‹ قبلی</span>
+                {% endif %}
+
+                <span class="current">
+                    صفحه {{ posts.number }} از {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">بعدی ›</a>
+                    <a href="?page={{ posts.paginator.num_pages }}">آخر &raquo;</a>
+                {% else %}
+                    <span class="disabled">بعدی ›</span>
+                    <span class="disabled">آخر &raquo;</span>
+                {% endif %}
+            </div>
+
+          </div>
+
+          <!-- Popular post -->
+          <div class="popular-post">
+              <table>
+                <tr>
+                  <th>پست های پر بازدید</th>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                        <span>
+                          <h6>lorem ipsum</h6>
+                          <p>this is text.</p>
+                        </span>
+                        <span>
+                          <img src="./woods.jpg" alt="pic">
+                        </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                     <div>
+                      <span>
+                        <h6>lorem ipsum</h6>
+                        <p>this is text.</p>
+                      </span>
+                      <span>
+                        <img src="./woods.jpg" alt="pic">
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+          </div>
+
+
+          <!-- Tags -->
+          <div class="tags">
+            <table>
+                <tr>
+                  <th># تگ ها</th>
+                </tr>
+                <tr>
+                  <td>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </td>
+                </tr>
+              </table>
+          </div>
+        </div> 
+      </div>
+
+    <!-- Footer -->
+    {% include "./partials/footer.html" %}
+
+{% endblock content %}

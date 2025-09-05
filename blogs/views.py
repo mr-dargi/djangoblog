@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import CommentForm
 from django.contrib import messages
 from django.db.models import Count, Q
@@ -82,3 +82,38 @@ def delete_comment(request, pk):
     else:
         messages.error(request, "شما دارای دسترسی برای حذف این کامنت نیستید.", "danger")
         return redirect("blogs:post_detail", slug=comment.post.slug)
+
+
+def post_search(request):
+    """
+    Search view: searches published posts by a query string.
+    - reads 'q' from GET params
+    - searches title, body and author's username (case-insensitive)
+    - paginates results and preserves the query string across pages
+    """
+    query = request.GET.get("q", "").strip()
+    page_number = request.GET.get("page", 1)
+    qs = Post.objects.filter(status="published").annotate(
+        top_level_comments = Count("comments", filter=Q(comments__parent__isnull=True))
+    )
+
+    if query:
+        qs = qs.filter(
+                Q(title__icontains=query) |
+                Q(body__icontains=query) |
+                Q(author__user_name__icontains=query)
+            ).distinct()
+    
+    paginator = Paginator(qs.order_by("-updated_at"), 4)
+
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return render(request, "blogs/post_search.html", {
+        "query": query,
+        "posts": posts,
+    })

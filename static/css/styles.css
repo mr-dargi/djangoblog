@@ -145,19 +145,19 @@ button {
     height: 46px;
     background-color: white;
     color: rgb(156, 156, 156);
-    padding: 10px 40px 10px 12px;
+    padding: 10px 60px 10px 12px;
     font-size: 16px;
     border-radius: 100px;
     box-sizing: border-box;
 }
 
 /* Mobile Search icon */
-.mobile-search-container .search-icon {
+.mobile-search-container button {
     position: absolute;
     right: 32px;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
-    color: #999;
+    color: #fff;
     pointer-events: none;
     font-size: 16px;
 }
@@ -170,6 +170,10 @@ button {
     grid-template-areas: "content content content content content content"
     "pop pop pop pop pop pop"
     "tags tags tags tags tags tags";
+}
+
+.post-search-title {
+    padding: 10px 50px;
 }
 
 /* Main section => content */
@@ -1217,10 +1221,12 @@ details[open] .chev {
     }
 
 
-    #navbar-search i {
+    #navbar-search button {
         position: absolute;
         right: 40px;
-        top: 30%;
+        top: 0;
+        margin: 0px;
+        margin-top: 5px;
     }
 
     .navbar div:last-child {
@@ -1233,7 +1239,7 @@ details[open] .chev {
         height: 45px;
         width: 90%;
         background-color: #f2f3f6;
-        padding-right: 30px;
+        padding-right: 50px;
         color: rgb(156, 156, 156);
     }
 

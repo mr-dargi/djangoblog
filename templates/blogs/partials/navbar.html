@@ -20,9 +20,11 @@
             </div>
         {% endwith %}
         <div id="navbar-search">
-            <form action="" method="get">
-            <input type="text" value="جستو جو وبلاگ ها">
-            <i class="fa fa-search"></i>
+            <form action="{% url 'blogs:post_search' %}" method="get">
+                <input type="text" name="q"  placeholder="جستوجوی وبلاگ ها" value="{{ request.GET.q|default_if_none:'' }}">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
         </div>
     </div>
@@ -31,9 +33,11 @@
 <!-- Mobile or tablet view searchbar -->
 <div id="mobile-searchbar" class="mobile-sticky-searchbar">
     <div class="mobile-search-container">
-        <form action="" method="get">
-        <input type="text" value="جستو جو وبلاگ ها">
-        <i class="fa fa-search search-icon"></i>
+        <form action="{% url 'blogs:post_search' %}" method="get">
+                <input type="text" name="q"  placeholder="جستوجوی وبلاگ ها" value="{{ request.GET.q|default_if_none:'' }}">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
         </form>
     </div>
 </div>
