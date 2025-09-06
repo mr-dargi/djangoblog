@@ -7,6 +7,7 @@ class Category(models.Model):
     parent = models.ForeignKey(
         "self",
         blank=True,
+        null=True,
         on_delete=models.CASCADE,
         related_name="childs"
     )
