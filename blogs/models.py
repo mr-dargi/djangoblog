@@ -36,6 +36,7 @@ class Post(models.Model):
     body = models.TextField(verbose_name="مقاله")
     slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category, related_name="posts")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_premium = models.BooleanField(default=False, verbose_name="مقاله ویژه")
