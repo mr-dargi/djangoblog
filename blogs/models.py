@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import User
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 
 
 class Category(models.Model):
