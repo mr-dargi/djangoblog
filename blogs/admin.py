@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Category
 
 
 # Register Post in admin panel
@@ -64,3 +64,23 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Comment, CommentAdmin)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        "parent",
+        "name",
+        "slug",
+    )
+
+    list_filter = (
+        "name",
+    )
+
+    search_fields = (
+        "name",
+    )
+
+    prepopulated_fields = {"slug": ("name",)}
+
+admin.site.register(Category, CategoryAdmin)
