@@ -168,6 +168,7 @@ button {
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "content content content content content content"
+    "cat cat cat cat cat cat"
     "pop pop pop pop pop pop"
     "tags tags tags tags tags tags";
 }
@@ -267,6 +268,61 @@ button {
 
 .card-footer-comment {
     text-align: left;
+}
+
+/* Main section => Category */
+.category {
+    grid-area: cat;
+    border-radius: 30px;
+    background-color: white;
+    padding: 10px;
+    margin: 20px 20px 0 20px;
+    max-height: 400px;
+}
+
+.categoryPage-title {
+    padding: 10px 40px;
+}
+
+.category h3 {
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+    padding: 8px;
+    text-align: center;
+}
+
+.category-accordion {
+    list-style: none;
+    width: 100%;
+    padding: 10px 20px 10px 0px;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 310px;
+}
+
+.category-accordion details {
+    margin: 15px 0;
+}
+
+.category-accordion li {
+    margin-top: 10px;
+}
+
+.category-accordion::-webkit-scrollbar {
+  width: 10px;
+}
+
+.category-accordion::-webkit-scrollbar-thumb {
+  background: #04AA6D;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+.category-accordion::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 15px;
 }
 
 /* Main section => Popular post */
@@ -989,7 +1045,7 @@ summary::-webkit-details-marker {
 }
 
 details[open] .chev { 
-    transform: rotate(-90deg); 
+    transform: rotate(-180deg); 
 }
 
 .meta { 
@@ -1183,12 +1239,16 @@ details[open] .chev {
         grid-area: 1 / 3 / span 4 / span 4;
     }
 
-    .popular-post {
+    .category {
         grid-area: 1 / 1 / span 1 / span 2;
     }
 
-    .tags {
+    .popular-post {
         grid-area: 2 / 1 / span 1 / span 2;
+    }
+
+    .tags {
+        grid-area: 3 / 1 / span 1 / span 2;
     }
 
     #mobile-searchbar {

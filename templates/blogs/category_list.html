@@ -13,6 +13,7 @@
           <!-- Post content -->
           <div class="content">
 
+            <h3 class="categoryPage-title">{{ category.name }}</h3>
             {% for post in posts %}
                 <div class="card">
                     <div class="card-image">
@@ -61,11 +62,12 @@
 
           </div>
 
+
           <!-- Category -->
           <div class="category">
             <h3>دسته بندی</h3>
             <div class="category-accordion">
-              {% for cat in category %}
+              {% for cat in categories %}
                 <details>
                     <summary>
                       <span>
