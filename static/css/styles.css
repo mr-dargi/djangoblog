@@ -220,6 +220,14 @@ button {
     margin: 10px;
 }
 
+.card-footer {
+    margin: 10px;
+}
+
+.card-footer-comment {
+    text-align: left;
+}
+
 /* Main => content => Paginatio */
 .pagination {
   text-align: center;
@@ -257,17 +265,6 @@ button {
   border: 1px solid #ccc;
   color: #aaa;
   cursor: not-allowed;
-}
-
-
-.card-footer {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    margin: 10px;
-}
-
-.card-footer-comment {
-    text-align: left;
 }
 
 /* Main section => Category */
