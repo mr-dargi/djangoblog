@@ -169,7 +169,6 @@ button {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "content content content content content content"
     "cat cat cat cat cat cat"
-    "pop pop pop pop pop pop"
     "tags tags tags tags tags tags";
 }
 
@@ -320,44 +319,6 @@ button {
 .category-accordion::-webkit-scrollbar-track {
   background: transparent;
   margin: 15px;
-}
-
-/* Main section => Popular post */
-.popular-post {
-    grid-area: pop;
-    border-radius: 30px;
-    background-color: white;
-    padding: 20px;
-    margin: 20px 20px 0 20px;
-}
-
-.popular-post table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.popular-post th, td {
-    text-align: right;
-    padding: 8px;
-}
-
-.popular-post th {
-    background-color: #04AA6D;
-    color: white;
-    border-radius: 30px;
-    text-align: center;
-}
-
-.popular-post td div {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.popular-post img {
-    width: 80px;
-    height: 40px;
-    border-radius: 10px;
 }
 
 /* Main section => tags */
@@ -1238,10 +1199,6 @@ details[open] .chev {
 
     .category {
         grid-area: 1 / 1 / span 1 / span 2;
-    }
-
-    .popular-post {
-        grid-area: 2 / 1 / span 1 / span 2;
     }
 
     .tags {
