@@ -1,0 +1,30 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    {% include "./partials/brand.html" %}
+
+    <!-- Main -->
+    <div class="container">
+        {% include "./partials/navbar.html" %}
+        <div class="contact">
+            <div class="contact-img">
+                <img src="../media/public/contact.jpg" />
+            </div>
+            <div class="contact-content">
+                 <h2>خوشحال می‌شویم با ما در ارتباط باشید</h2>
+                <p>
+                    اگر سوال، پیشنهاد یا انتقادی دارید، از طریق فرم زیر یا اطلاعات تماس با ما در ارتباط باشید.
+                </p>
+
+                <h3>اطلاعات تماس</h3>
+                <p>📧 ایمیل: info@example.com</p>
+                <p>📞 تلفن: 021-12345678</p>
+                <p>📍 آدرس: تهران، خیابان آزادی</p>
+            </div> 
+        </div>     
+    </div>
+
+    <!-- Footer -->
+    {% include "./partials/footer.html" %}
+{% endblock content %}

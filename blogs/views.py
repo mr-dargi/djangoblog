@@ -139,3 +139,7 @@ def category_list(request, slug):
 
 def about(request):
     return render(request, "blogs/about.html")
+
+
+def contact(request):
+    return render(request, "blogs/contact.html")

@@ -9,7 +9,7 @@
                 <a class="{% if url_name == url %}active{% endif %}" href="{% url 'blogs:about' %}">درباره ما</a>
             </div>
             <div>
-                <a class="{% if url_name == url %}active{% endif %}" href="#">تماس با ما</a>
+                <a class="{% if url_name == url %}active{% endif %}" href="{% url 'blogs:contact' %}">تماس با ما</a>
             </div>
             <div>
                 {% if not user.is_authenticated %}
