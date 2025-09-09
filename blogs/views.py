@@ -135,3 +135,7 @@ def category_list(request, slug):
         "category": category,
         "categories": categories,
     })
+
+
+def about(request):
+    return render(request, "blogs/about.html")

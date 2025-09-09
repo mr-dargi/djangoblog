@@ -1162,6 +1162,27 @@ details[open] .chev {
     margin-left: 10px;
 }
 
+.about {
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 30px;
+}
+
+.about-img img {
+    max-height: 500px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.about-content {
+    padding: 30px;
+}
+
+.about-content p {
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
 
 @media only screen and (min-width:540px) {
     .card-image {

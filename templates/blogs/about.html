@@ -1,0 +1,31 @@
+{% extends "../base.html" %}
+
+
+{% block content %}
+    {% include "./partials/brand.html" %}
+
+    <!-- Main -->
+    <div class="container">
+        {% include "./partials/navbar.html" %}
+        <div class="about">
+            <div class="about-img">
+                <img src="../media/public/about.jpg" />
+            </div>
+            <div class="about-content">
+                <h2>ما که هستیم؟</h2>
+                <p>
+                    ما یک تیم علاقه‌مند به دنیای وب هستیم که هدفمون ایجاد محتوای ارزشمند و کاربردی برای کاربران است.
+                    تمرکز ما روی نوآوری، کیفیت و ارائه خدماتی است که به رشد جامعه کمک کنه.
+                </p>
+
+                <h2>ماموریت ما</h2>
+                <p>
+                    ماموریت ما ساده است: ایجاد تجربه‌ای بهتر برای کاربران اینترنت، از طریق آموزش، محتوا و ابزارهای آنلاین.
+                </p>
+            </div> 
+        </div>     
+    </div>
+
+    <!-- Footer -->
+    {% include "./partials/footer.html" %}
+{% endblock content %}

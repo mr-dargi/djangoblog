@@ -6,7 +6,7 @@
                 <a class="{% if url_name == 'home' %}active{% endif %}" href="{% url 'blogs:home' %}">خانه</a>
             </div>
             <div>
-                <a class="{% if url_name == url %}active{% endif %}" href="#">درباره ما</a>
+                <a class="{% if url_name == url %}active{% endif %}" href="{% url 'blogs:about' %}">درباره ما</a>
             </div>
             <div>
                 <a class="{% if url_name == url %}active{% endif %}" href="#">تماس با ما</a>
