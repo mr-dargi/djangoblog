@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, Tag
 
 
 # Register Post in admin panel
@@ -84,3 +84,22 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 admin.site.register(Category, CategoryAdmin)
+
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "slug",
+    )
+
+    list_filter = (
+        "name",
+    )
+
+    search_fields = (
+        "name",
+    )
+
+    prepopulated_fields = {"slug": ("name",)}
+
+admin.site.register(Tag, TagAdmin)
