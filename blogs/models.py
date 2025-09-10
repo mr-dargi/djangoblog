@@ -23,6 +23,19 @@ class Category(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     STATUS_CHOICES = (
         ("draft", "Draft"),
@@ -38,6 +51,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category, related_name="posts")
+    tag = models.ManyToManyField(Tag, related_name="posts")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_premium = models.BooleanField(default=False, verbose_name="مقاله ویژه")
