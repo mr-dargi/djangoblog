@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Comment, Category
+from .models import Post, Comment, Category, Tag
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import CommentForm
 from django.contrib import messages
@@ -20,13 +20,15 @@ def home(request):
         top_level_comments=Count("comments", filter=Q(comments__parent__isnull=True))
     )
     category = Category.objects.filter(parent__isnull=True)
+    tags = Tag.objects.all()
     paginator = Paginator(posts, 4)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     return render(request, "blogs/home.html", {
         'posts': page_obj,
-        "category": category
+        "category": category,
+        "tags": tags,
     })
 
 
@@ -129,12 +131,30 @@ def category_list(request, slug):
     posts = Post.objects.filter(category=category, status="published").annotate(
         top_level_comments=Count("comments", filter=Q(comments__parent__isnull=True))
     )
+    tags = Tag.objects.all()
 
     return render(request, "blogs/category_list.html", { 
         "posts": posts,
         "category": category,
         "categories": categories,
+        "tags": tags,
     })
+
+
+def tag_list(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    tags = Tag.objects.all()
+    category = Category.objects.filter(parent__isnull=True)
+    posts = Post.objects.filter(tag=tag, status="published").annotate(
+        top_level_comments=Count("comments", filter=Q(comments__parent__isnull=True))
+    )
+
+    return render(request, "blogs/tag_list.html",{
+                  "posts": posts,
+                  "tag": tag,
+                  "tags": tags,
+                  "categories": category,
+                  })
 
 
 def about(request):

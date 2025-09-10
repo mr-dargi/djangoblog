@@ -11,4 +11,5 @@ urlpatterns = [
     path("detail/<slug:slug>", views.post_detail, name="post_detail"),
     path("comment/delete/<int:pk>/", views.delete_comment, name="delete_comment"),
     path("category/<slug:slug>/", views.category_list, name="category_list"),
+    path("tag/<slug:slug>/", views.tag_list, name="tag_list"),
 ]

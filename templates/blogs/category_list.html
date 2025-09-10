@@ -98,12 +98,13 @@
                 </tr>
                 <tr>
                   <td>
-                    <span>hello</span>
-                    <span>hello</span>
-                    <span>hello</span>
-                    <span>hello</span>
-                    <span>hello</span>
-                    <span>hello</span>
+                    <div class="tags-container">
+                        {% for tag in tags %}
+                            <div>
+                                <a href="{% url 'blogs:tag_list' tag.slug %}"># {{ tag }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
                   </td>
                 </tr>
               </table>

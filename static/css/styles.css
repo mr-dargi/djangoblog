@@ -348,6 +348,20 @@ button {
     text-align: center;
 }
 
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags-container div {
+    background-color: #dfdfdf;
+    border-radius: 40px;
+    width: 65px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
 /* Footer section */
 .custom-footer {
   background: white;

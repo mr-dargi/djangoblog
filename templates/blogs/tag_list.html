@@ -13,9 +13,9 @@
           <!-- Post content -->
           <div class="content">
 
+            <h3 class="categoryPage-title">{{ tag.name }}</h3>
             {% for post in posts %}
-                <a href="{% url 'blogs:post_detail' post.slug %}">
-                  <div class="card">
+                <div class="card">
                     <div class="card-image">
                         <img src="{{ post.image.url }}" alt="pic">
                     </div>
@@ -31,10 +31,10 @@
                         </p>
                     </div>
                     <div class="card-footer">
+                        <div><a href="{% url 'blogs:post_detail' post.slug %}">بیشتر...</a></div>
                         <div class="card-footer-comment">نظرات {{ post.top_level_comments }}</span></div>
                     </div>
                 </div>
-                </a>
             {% endfor %}
 
             <!-- Pagination -->
@@ -62,11 +62,12 @@
 
           </div>
 
+
           <!-- Category -->
           <div class="category">
             <h3>دسته بندی</h3>
             <div class="category-accordion">
-              {% for cat in category %}
+              {% for cat in categories %}
                 <details>
                     <summary>
                       <span>
