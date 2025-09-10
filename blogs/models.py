@@ -25,7 +25,7 @@ class Category(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=100, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
