@@ -20,7 +20,7 @@
                         <img src="{{ post.image.url }}" alt="pic">
                     </div>
                     <div class="card-title">
-                        <h1>{{ post.title }}</h1>
+                        <h1>{{ post.title|truncatewords:10 }}</h1>
                     </div>
                     <div class="card-publish-date">
                         <h5><span>{{ post.updated_at }}</span></h5>
@@ -99,9 +99,9 @@
                   <td>
                     <div class="tags-container">
                         {% for tag in tags %}
-                            <div>
+                            <span>
                                 <a href="{% url 'blogs:tag_list' tag.slug %}"># {{ tag }}</a>
-                            </div>
+                            </span>
                         {% endfor %}
                     </div>
                   </td>

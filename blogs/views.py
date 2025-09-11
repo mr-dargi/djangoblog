@@ -16,7 +16,7 @@ def home(request):
     are excluded from this count. The annotated queryset is then passed to the 
     template for rendering.
     """
-    posts = Post.objects.filter(status="published").annotate(
+    posts = Post.objects.filter(status="published").order_by("-created_at").annotate(
         top_level_comments=Count("comments", filter=Q(comments__parent__isnull=True))
     )
     category = Category.objects.filter(parent__isnull=True)
